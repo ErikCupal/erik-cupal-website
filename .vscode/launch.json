@@ -1,0 +1,56 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Node Dev",
+      "type": "node2",
+      "request": "launch",
+      "runtimeArgs": [
+        "--harmony"
+      ],
+      "program": "${workspaceRoot}/src/server/index.tsx",
+      "outFiles": [
+        "${workspaceRoot}/build/development/server.js"
+      ],
+      "cwd": "${workspaceRoot}",
+      "sourceMaps": true
+    },
+    {
+      "name": "Node Production",
+      "type": "node2",
+      "request": "launch",
+      "runtimeArgs": [
+        "--harmony"
+      ],
+      "program": "${workspaceRoot}/src/server/index.tsx",
+      "outFiles": [
+        "${workspaceRoot}/build/production/server.js"
+      ],
+      "cwd": "${workspaceRoot}",
+      "sourceMaps": true,
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    {
+      "name": "Chrome",
+      "type": "chrome",
+      "request": "launch",
+      "webRoot": "${workspaceRoot}",
+      "url": "http://localhost:3000/",
+      "userDataDir": "${workspaceRoot}/.vscode/chrome",
+      "sourceMaps": true,
+      // "smartStep": true,
+      "internalConsoleOptions": "openOnSessionStart"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Combo",
+      "configurations": [
+        "Node Dev",
+        "Chrome"
+      ]
+    }
+  ]
+}

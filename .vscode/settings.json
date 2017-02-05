@@ -1,0 +1,11 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+  "files.exclude": {
+    ".gitignore": true,
+    "debug.log": true,
+    "**/.vscode/chrome/**": true,
+    "**/node_modules": true,
+    "**/*.js.map": true,
+    "**/build/": true
+  }
+}
