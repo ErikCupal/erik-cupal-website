@@ -32,12 +32,14 @@ const render = (Component: typeof App) => {
 render(App)
 
 // Hot reloading
-if (module.hot) {
+if (module && module.hot) {
   // Silence react router errors
   const orgError = console.error
   console.error = (...args: any[]) => {
-    if (args && args[0] && typeof args[0] === 'string' &&
-      args[0].indexOf('You cannot change <Router routes>;') > -1) {
+    if (
+      args && args[0] && typeof args[0] === 'string'
+      && args[0].indexOf('You cannot change <Router routes>;'
+      ) > -1) {
       // React route changed
     } else {
       // Log the error as normal

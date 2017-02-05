@@ -7,7 +7,7 @@ const debug = process.env.NODE_ENV !== 'production'
 import webpack from 'webpack'
 import webpackDevMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
-import webpackConfig, { publicPath } from './webpack.config'
+import webpackConfig, { publicPath } from './webpack.client'
 import requestLogger from './requestLogger'
 
 switch (debug) {
