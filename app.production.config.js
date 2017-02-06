@@ -8,7 +8,8 @@ module.exports = {
       env: {
         PORT: 8081,
         NODE_ENV: "production"
-      }
+      },
+      cwd: '/root/apps/erik-cupal-website'
     }
   ]
 }
