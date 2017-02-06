@@ -1,7 +1,7 @@
 import { visibleTodos } from '../../selectors'
 import { connect, RENAME_TODO, TOGGLE_TODO } from '../../actions'
 import { Todo } from '../../types'
-import TodoElement from './todoElement'
+import TodoElement from './TodoElement'
 
 interface Props {
   toggleTodo: (id: number) => void
