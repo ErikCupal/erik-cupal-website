@@ -9,7 +9,8 @@ module.exports = {
         PORT: 8081,
         NODE_ENV: "production"
       },
-      cwd: '/root/apps/erik-cupal-website'
+      cwd: '/root/apps/erik-cupal-website',
+      node_args: "--harmony"
     }
   ]
 }
