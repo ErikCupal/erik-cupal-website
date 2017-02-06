@@ -4,7 +4,7 @@ module.exports = {
   apps: [
     {
       name: "erik-cupal-website-production",
-      script: "./build/production/app.js",
+      script: "./build/production/server.js",
       env: {
         PORT: 8081,
         NODE_ENV: "production"
