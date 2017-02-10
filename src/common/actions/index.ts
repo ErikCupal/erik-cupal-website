@@ -15,6 +15,7 @@ export type Action =
   | TOGGLE_TODO
   | RENAME_TODO
   | SET_VISIBILITY_FILTER
+  | TOGGLE_NAVBAR
 
 // Action types
 
@@ -24,6 +25,7 @@ export const ADD_TODO = 'ADD_TODO'
 export const TOGGLE_TODO = 'TOGGLE_TODO'
 export const RENAME_TODO = 'RENAME_TODO'
 export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
+export const TOGGLE_NAVBAR = 'TOGGLE_NAVBAR'
 
 export type INCREMENT = { type: typeof INCREMENT }
 export type DECREMENT = { type: typeof DECREMENT }
@@ -31,3 +33,4 @@ export type ADD_TODO = { type: typeof ADD_TODO, task: string }
 export type TOGGLE_TODO = { type: typeof TOGGLE_TODO, id: number }
 export type RENAME_TODO = { type: typeof RENAME_TODO, id: number, task: string }
 export type SET_VISIBILITY_FILTER = { type: typeof SET_VISIBILITY_FILTER, filter: VisibilityFilter }
+export type TOGGLE_NAVBAR = { type: typeof TOGGLE_NAVBAR }

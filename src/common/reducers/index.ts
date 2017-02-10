@@ -1,3 +1,4 @@
+import navbarCollapsed from './navbarCollapsed'
 import todos from './todos'
 import visibilityFilter from './visibilityFilter'
 import counter from './counter'
@@ -10,6 +11,7 @@ const reducers = combineReducers<State & { routing: RouterState }>({
   todos,
   visibilityFilter,
   counter,
+  navbarCollapsed,
   routing: routerReducer
 })
 

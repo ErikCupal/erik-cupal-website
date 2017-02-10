@@ -6,13 +6,13 @@ interface Props {
   decrement: () => void
 }
 
-const Counter = ({ counter, increment, decrement }: Props) =>
-
+const Counter = ({ counter, increment, decrement }: Props) => (
   <div>
     <h2>Counter:{' ' + counter}</h2>
     <button onClick={increment}>+</button>
     <button onClick={decrement}>-</button>
   </div>
+)
 
 export default connect()(
   state => ({ counter: state.counter }),

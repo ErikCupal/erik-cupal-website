@@ -2,6 +2,7 @@ export interface State {
   readonly todos: Todo[]
   readonly visibilityFilter: VisibilityFilter
   readonly counter: number
+  readonly navbarCollapsed: boolean
 }
 
 export interface Todo {

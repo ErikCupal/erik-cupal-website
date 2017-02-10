@@ -10,7 +10,6 @@ const FilterLink = ({ text, setFilter }: Props) =>
 
   <a
     onClick={setFilter}
-    style={{ padding: '3px' }}
   >
     {text}
   </a>

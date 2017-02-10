@@ -15,6 +15,7 @@ const initialState: State = {
   ],
   visibilityFilter: 'all',
   counter: 0,
+  navbarCollapsed: true,
 }
 
 export default initialState
