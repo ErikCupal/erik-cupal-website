@@ -1,9 +1,10 @@
+import { main } from 'stylish-components/lib'
 import React from 'react'
 import Header from './Header'
 import { div } from 'stylish-components'
 
 const Body = div([{
-  fontFamily: 'Nunito',
+  fontFamily: 'Ubuntu',
 
   display: 'flex',
   margin: 0,
@@ -12,10 +13,16 @@ const Body = div([{
   height: '100%',
 }])
 
+const Main = main([{
+  marginTop: 75
+}])
+
 const Page = ({ children }: React.Props<{}>) => (
   <Body>
     <Header />
-    {children}
+    <Main>
+      {children}
+    </Main>
   </Body>
 )
 

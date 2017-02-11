@@ -1,34 +1,29 @@
-import { div, img, sm, md } from 'stylish-components'
+import { darkslateblue, darkslategray } from 'stylish-components/lib'
+import { div, img, sm, md, extend, lightslategrey } from 'stylish-components'
 
 const Wrapper = div([
   {
     display: 'flex',
     flex: 1,
     justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: '63px',
+    fontSize: 30,
+    color: darkslategray,
+    height: 75,
   },
+  sm({
+    marginLeft: '92px',
+  }),
   md({
     justifyContent: 'flex-start',
     marginLeft: '5%',
   })
 ])
 
-const StyledImage = img([
-  {
-    width: '100%',
-    height: 75,
-
-    maxWidth: 240,
-    marginLeft: 7,
-  },
-  sm({ maxWidth: 290, margin: 0 })
-])
-
 const Logo = () => (
   <Wrapper>
-    <StyledImage
-      src='https://sonacupalova.cz/wp-content/uploads/2016/05/logosc1.svg'
-      alt='Logo'
-    />
+    Erik Cupal
   </Wrapper>
 )
 

@@ -4,7 +4,7 @@ import htmlTemplate from './html5'
 const css = ``
 
 const fonts = `
-  <link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,600,600i&amp;subset=latin-ext" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,400i,500&amp;subset=latin-ext" rel="stylesheet">
 `
 
 const injectApp = (path: string) => `<script src="${path}"></script>`

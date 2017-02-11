@@ -4,8 +4,9 @@ import Logo from './Logo'
 import Navigation from './Navigation'
 
 const StyledHeader = header([
-  debug,
   {
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+
     position: 'fixed',
     width: '100%',
     height: 75,

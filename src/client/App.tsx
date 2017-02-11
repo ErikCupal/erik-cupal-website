@@ -1,8 +1,7 @@
 import { Router, browserHistory } from 'react-router'
 import routes from '../common/routes'
-import { ReactRouterReduxHistory } from 'react-router-redux'
 
-const App = ({ history }: { history: ReactRouterReduxHistory }) => (
+const App = ({ history }: { history: typeof browserHistory }) => (
   <Router routes={routes} history={history} />
 )
 

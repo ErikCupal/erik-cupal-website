@@ -1,4 +1,4 @@
-import { Action, ADD_TODO, TOGGLE_TODO } from '../actions'
+import { Action, ADD_TODO, RENAME_TODO, TOGGLE_TODO } from '../actions'
 import { Todo } from '../types'
 
 const todos = (state: Todo[] = [], action: Action) => {
@@ -16,6 +16,12 @@ const todos = (state: Todo[] = [], action: Action) => {
       return state.map(todo => {
         return todo.id === action.id
           ? { ...todo, completed: !todo.completed }
+          : todo
+      })
+    case RENAME_TODO:
+      return state.map(todo => {
+        return todo.id === action.id
+          ? { ...todo, task: action.task }
           : todo
       })
     default:

@@ -4,13 +4,18 @@ const initialState: State = {
   todos: [
     {
       id: 1,
-      task: 'Finish the app',
-      completed: false
+      task: 'Buy milk',
+      completed: false,
     },
     {
       id: 2,
-      task: 'Play Witcher 3',
-      completed: false
+      task: 'Buy bread',
+      completed: false,
+    },
+    {
+      id: 3,
+      task: 'Make dinner',
+      completed: false,
     },
   ],
   visibilityFilter: 'all',

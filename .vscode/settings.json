@@ -6,6 +6,7 @@
     "**/.vscode/chrome/**": true,
     "**/node_modules": true,
     "**/*.js.map": true,
-    "**/build/": true
+    "**/build/": true,
+    "**/.vscode/**": true
   }
 }

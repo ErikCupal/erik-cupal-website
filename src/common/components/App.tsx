@@ -1,16 +1,11 @@
 import Counter from './Counter'
 import Todos from './Todos'
-import { div } from 'stylish-components'
-
-const Body = div([{
-  fontFamily: 'Nunito',
-}])
 
 const App = () => (
-  <Body>
+  <div style={{ margin: 10 }}>
     <Counter />
     <Todos />
-  </Body>
+  </div>
 )
 
 export default App

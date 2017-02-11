@@ -24,6 +24,10 @@ log('🏁 Starting app')
 const app = Express()
 const port: number = (process.env.PORT || '3000')
 
+app.use('/public', Express.static('public'))
+
+
+
 if (!debug) {
   app.get('/public/js/app.js', (req, res) => {
     res.sendFile(join(process.cwd() + '/build/production/app.js'))

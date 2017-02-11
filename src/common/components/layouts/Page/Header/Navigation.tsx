@@ -49,6 +49,7 @@ const Navigation = ({ collapsed }: Props) => (
   <StyledNav collapsed={collapsed}>
     <NavLink to='/'>Blog</NavLink>
     <NavLink to='/about-me'>About me</NavLink>
+    <NavLink to='/todos'>Todos</NavLink>
   </StyledNav>
 )
 

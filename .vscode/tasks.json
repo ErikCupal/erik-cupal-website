@@ -20,6 +20,7 @@
       "taskName": "Webpack Production",
       "isBuildCommand": false,
       "args": [
+        "-w",
         "--env.NODE_ENV=\"production\""
       ]
     }
