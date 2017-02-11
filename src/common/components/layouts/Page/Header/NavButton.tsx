@@ -1,8 +1,8 @@
 import { TOGGLE_NAVBAR } from '../../../../actions'
 import { connect } from '../../../../utils'
-import { button, div, mediumseagreen, darkseagreen, sm, transparent, md } from '../../../css'
+import { button, transparent, sm, md, div, darkseagreen, mediumseagreen } from 'stylish-components'
 
-const StyledButton = button<{ pressed?: boolean }>(({ pressed }) => [
+const StyledButton = button([
   {
     backgroundColor: transparent,
     marginRight: 15,
@@ -18,7 +18,7 @@ const IconBar = div<{ first?: boolean, pressed?: boolean }>(({ first, pressed })
     width: 26,
     height: 3,
     borderRadius: 1.5,
-    backgroundColor: pressed ? mediumseagreen : darkseagreen,
+    backgroundColor: pressed ? darkseagreen : mediumseagreen,
     marginTop: !first ? 3 : 0,
   },
   sm({
@@ -34,9 +34,9 @@ interface Props {
 
 const NavButton = ({ pressed, onClick }: Props) => (
   <StyledButton onClick={onClick}>
-    <IconBar pressed first />
-    <IconBar pressed />
-    <IconBar pressed />
+    <IconBar pressed={pressed} first />
+    <IconBar pressed={pressed} />
+    <IconBar pressed={pressed} />
   </StyledButton>
 )
 

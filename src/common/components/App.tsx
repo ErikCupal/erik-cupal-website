@@ -1,7 +1,6 @@
 import Counter from './Counter'
 import Todos from './Todos'
-import Flexy from './Flexy'
-import { div } from './css'
+import { div } from 'stylish-components'
 
 const Body = div([{
   fontFamily: 'Nunito',
@@ -11,7 +10,6 @@ const App = () => (
   <Body>
     <Counter />
     <Todos />
-    <Flexy />
   </Body>
 )
 

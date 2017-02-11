@@ -1,7 +1,6 @@
-import React from 'react'
-import { Link } from 'react-router'
-import { black, extend, floralwhite, lightslategrey, md, nav, papayawhip } from '../../../css'
 import { connect } from '../../../../actions/index'
+import { Link } from 'react-router'
+import { black, extend, floralwhite, lightslategrey, md, nav } from 'stylish-components'
 
 const NavLink = extend(Link)([
   {

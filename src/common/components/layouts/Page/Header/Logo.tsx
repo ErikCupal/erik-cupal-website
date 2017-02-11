@@ -1,4 +1,4 @@
-import { div, img, sm, md } from '../../../css'
+import { div, img, sm, md } from 'stylish-components'
 
 const Wrapper = div([
   {

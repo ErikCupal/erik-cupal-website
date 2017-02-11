@@ -1,4 +1,4 @@
-import { header, View, Col, debug } from '../../../css'
+import { header, debug } from 'stylish-components'
 import NavButton from './NavButton'
 import Logo from './Logo'
 import Navigation from './Navigation'
