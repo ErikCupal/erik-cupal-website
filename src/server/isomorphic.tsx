@@ -1,7 +1,8 @@
-import { Request, Response } from 'express'
 import { match, RouterContext } from 'react-router'
 import { renderToString } from 'react-dom/server'
 import { Provider } from 'react-redux'
+
+import { Context } from 'koa'
 
 import renderHtml from './renderHtml'
 import configureStore from '../common/store/configureStore'
@@ -9,17 +10,18 @@ import configureStore from '../common/store/configureStore'
 import routes from '../common/routes'
 import initialState from './initialState'
 
-const isomorphic = (req: Request, res: Response) => {
+const isomorphic = async (ctx: Context, next: () => Promise<any> ) => {
   match(
-    { routes, location: req.url },
+    { routes, location: ctx.req.url as string },
     (err, redirect, props) => {
       switch (true) {
         case !!err: {
-          res.status(500).send(err.message)
+          ctx.status = 500
+          ctx.body = err.message
           break
         }
         case !!redirect: {
-          res.redirect(302, redirect.pathname + redirect.search)
+          ctx.redirect(redirect.pathname + redirect.search)
           break
         }
         case !!props: {
@@ -30,15 +32,18 @@ const isomorphic = (req: Request, res: Response) => {
             </Provider>
           )
           const finalState = store.getState()
-          res.send(renderHtml(html, finalState))
+          ctx.body = renderHtml(html, finalState)
           break
         }
         default: {
-          res.status(404).send('Not Found')
+          ctx.status = 404
+          ctx.body = 'Not Found'
         }
       }
     }
   )
+
+  await next()
 }
 
 export default isomorphic

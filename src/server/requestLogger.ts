@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from 'express'
+import { Context } from 'koa'
 const { log } = console
 
 const logRequest = () => {
@@ -13,9 +13,9 @@ const logRequest = () => {
   log(`✈️ Request - ${day}.${month}. - ${hour}:${minute}:${second}`)
 }
 
-const requestLogger = (request: Request, response: Response, next: NextFunction) => {
+const requestLogger = async (ctx: Context, next: () => Promise<any>) => {
   logRequest()
-  next()
+  await next()
 }
 
 export default requestLogger

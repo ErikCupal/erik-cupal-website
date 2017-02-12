@@ -1,14 +1,11 @@
-import Express from 'express'
+import Koa from 'koa'
 import isomorphic from './isomorphic'
-import { join } from 'path'
+import requestLogger from './requestLogger'
+import webpackMiddleware from 'koa-2-webpack'
 const { log } = console
 const debug = process.env.NODE_ENV !== 'production'
 
-import webpack from 'webpack'
-import webpackDevMiddleware from 'webpack-dev-middleware'
-import webpackHotMiddleware from 'webpack-hot-middleware'
 import webpackConfig, { publicPath } from './webpack.client'
-import requestLogger from './requestLogger'
 
 switch (debug) {
   case true:
@@ -21,26 +18,33 @@ switch (debug) {
 
 log('🏁 Starting app')
 
-const app = Express()
+const app = new Koa()
 const port: number = (process.env.PORT || '3000')
 
-app.use('/public', Express.static('public'))
+// TODO: Serve static - public on /public
 
+// app.use(async (ctx, next) => {
+//   ctx.response
+// })
 
 
 if (!debug) {
-  app.get('/public/js/app.js', (req, res) => {
-    res.sendFile(join(process.cwd() + '/build/production/app.js'))
-  })
+  // TODO: serve static app.js
+
+  // app.get('/public/js/app.js', (req, res) => {
+  //   res.sendFile(join(process.cwd() + '/build/production/app.js'))
+  // })
 }
 
 if (debug) {
   log('🏎️ Initalizing webpack compiler')
-  const compiler = webpack(webpackConfig)
   log('💼 Initalizing webpack dev middleware')
-  app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath }))
   log('🔥 Initalizing hot module replacement')
-  app.use(webpackHotMiddleware(compiler))
+
+  app.use(webpackMiddleware({
+    config: webpackConfig,
+    dev: { noInfo: true, publicPath }
+  }))
 
   app.use(requestLogger)
 }
