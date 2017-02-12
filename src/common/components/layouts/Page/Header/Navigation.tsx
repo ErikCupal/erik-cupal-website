@@ -1,5 +1,5 @@
 import { connect } from '../../../../actions/index'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 import { black, extend, floralwhite, lightslategrey, md, nav } from 'stylish-components'
 
 const NavLink = extend(Link)([

@@ -1,22 +1,32 @@
-import { createStore, Reducer } from 'redux'
+import { createStore, Reducer, applyMiddleware } from 'redux'
+const { composeWithDevTools } = require('redux-devtools-extension')
+const { connectRouter, routerMiddleware } = require('connected-react-router')
+
+import { createBrowserHistory, History } from 'history'
 import reducers from '../reducers'
 import { State } from '../types/index'
-import { RouterState } from 'react-router-redux'
 
 declare const require: any
 declare const module: { hot: any }
 
-const getReduxDevTools = () => (
-  (window as any).__REDUX_DEVTOOLS_EXTENSION__
-  &&
-  (window as any).__REDUX_DEVTOOLS_EXTENSION__()
-)
 
 const configureStore = (preloadedState: State, isClient = false) => {
+  const history: History = isClient
+    ? createBrowserHistory()
+    : undefined as any
+
   const store = createStore<State>(
-    reducers as Reducer<State>,
+    isClient
+      ? connectRouter(history)(reducers)
+      : reducers,
     preloadedState,
-    isClient ? getReduxDevTools() : undefined
+    isClient
+      ? composeWithDevTools(
+        applyMiddleware(
+          ...(isClient ? [routerMiddleware(history)] : []),
+        ),
+      )
+      : undefined
   )
 
   if (module.hot) {
@@ -27,7 +37,7 @@ const configureStore = (preloadedState: State, isClient = false) => {
     })
   }
 
-  return store
+  return { store, history }
 }
 
 export default configureStore

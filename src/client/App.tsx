@@ -1,8 +1,11 @@
-import { Router, browserHistory } from 'react-router'
-import routes from '../common/routes'
+const { ConnectedRouter } = require('connected-react-router')
+import { History } from 'history'
+import Routes from '../common/routes'
 
-const App = ({ history }: { history: typeof browserHistory }) => (
-  <Router routes={routes} history={history} />
+const App = ({ history }: { history: History }) => (
+  <ConnectedRouter history={history}>
+    <Routes />
+  </ConnectedRouter>
 )
 
 export default App

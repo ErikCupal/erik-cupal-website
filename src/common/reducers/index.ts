@@ -7,12 +7,11 @@ import { combineReducers } from '../utils'
 
 import { routerReducer, RouterState } from 'react-router-redux'
 
-const reducers = combineReducers<State & { routing: RouterState }>({
+const reducers = combineReducers<State>({
   todos,
   visibilityFilter,
   counter,
-  navbarCollapsed,
-  routing: routerReducer
+  navbarCollapsed
 })
 
 export default reducers

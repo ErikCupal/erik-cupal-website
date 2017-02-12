@@ -4,7 +4,7 @@
     ".gitignore": true,
     "debug.log": true,
     "**/.vscode/chrome/**": true,
-    "**/node_modules": true,
+    "**/node_modules": false,
     "**/*.js.map": true,
     "**/build/": true,
     "**/.vscode/**": true

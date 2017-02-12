@@ -9,18 +9,20 @@ import NoMatch from './NoMatch'
 
 import {
   Route,
-  IndexRoute
-} from 'react-router'
+  Switch
+} from 'react-router-dom'
 
 normalize()
 setupPage('#app')
 
-const routes = (
-  <Route path='/' component={Page}>
-    <IndexRoute component={Home} />
-    <Route path='todos' component={App} />
-    <Route path='*' component={NoMatch} />
-  </Route>
+const Routes = () => (
+  <Page>
+    <Switch>
+      <Route path={`/`} exact component={Home} />
+      <Route path={`/todos`} component={App} />
+      <Route path={`/*`} component={NoMatch} />
+    </Switch>
+  </Page>
 )
 
-export default routes
+export default Routes
