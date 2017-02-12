@@ -27,7 +27,7 @@
     "redux": "^3.6.0",
     "redux-devtools-extension": "^2.13.0",
     "reselect": "^2.5.4",
-    "stylish-components": "0.0.11",
+    "stylish-components": "0.0.12",
     "typestyle": "^0.26.1"
   },
   "devDependencies": {
