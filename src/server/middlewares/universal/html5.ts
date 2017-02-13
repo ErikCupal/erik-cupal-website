@@ -2,6 +2,7 @@ const htmlTemplate = (
   title: string,
   appId: string,
   appHtml: string,
+  css: string,
   preLoadScripts: string,
   postLoadScripts: string
 ) => (
@@ -10,8 +11,11 @@ const htmlTemplate = (
       <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        ${preLoadScripts}
         <title>${title}</title>
+        ${preLoadScripts}
+        <style id="styles-target">
+          ${css}
+        </style>
       </head>
       <body>
         <div id="${appId}">${appHtml}</div>

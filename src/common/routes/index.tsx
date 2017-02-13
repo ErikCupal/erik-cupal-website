@@ -1,17 +1,15 @@
 import { setupPage, normalize } from 'csstips'
+import { style } from 'typestyle'
+import { init } from 'stylish-components'
+import { Route, Switch } from 'react-router-dom'
 
 import Page from '../components/layouts/Page'
 
 import App from '../components/App'
 import Home from '../components/Home'
-
 import NoMatch from './NoMatch'
 
-import {
-  Route,
-  Switch
-} from 'react-router-dom'
-
+init(style)
 normalize()
 setupPage('#app')
 

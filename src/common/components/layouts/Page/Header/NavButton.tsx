@@ -1,7 +1,6 @@
 import { TOGGLE_NAVBAR } from '../../../../actions'
 import { connect } from '../../../../utils'
-import { button, transparent, sm, md, div, darkseagreen, mediumseagreen, firstChild, child } from 'stylish-components'
-import { media, types } from 'typestyle'
+import { button, sm, md, div, transparent, darkseagreen, mediumseagreen, firstChild, child } from 'stylish-components'
 
 const StyledButton = button<{ pressed?: boolean }>(({ pressed }) => [
   {

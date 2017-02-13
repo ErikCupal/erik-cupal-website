@@ -1,7 +1,6 @@
-import { main } from 'stylish-components/lib'
 import React from 'react'
 import Header from './Header'
-import { div } from 'stylish-components'
+import { div, main } from 'stylish-components'
 
 const Body = div([{
   fontFamily: 'Ubuntu',

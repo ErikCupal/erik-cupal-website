@@ -1,54 +1,43 @@
 import Koa from 'koa'
-import isomorphic from './isomorphic'
-import requestLogger from './requestLogger'
+import createRouter from 'koa-router'
+import serve from 'koa-static'
+import send from 'koa-send'
+import mount from 'koa-mount'
 import webpackMiddleware from 'koa-2-webpack'
-const { log } = console
-const debug = process.env.NODE_ENV !== 'production'
+const router = new createRouter()
 
+import universal from './middlewares/universal'
+import requestLogger from './middlewares/requestLogger'
 import webpackConfig, { publicPath } from './webpack.client'
 
-switch (debug) {
-  case true:
-    log('🏎️ Development\n\n')
-    break
-  case false:
-    log('🤵 Production\n\n')
-    break
-}
+const { log } = console
+const debug = process.env.NODE_ENV !== 'production'
+const root = process.cwd()
+
+debug
+  ? log('🏎️ Development\n\n')
+  : log('🤵 Production\n\n')
 
 log('🏁 Starting app')
 
 const app = new Koa()
 const port: number = (process.env.PORT || '3000')
 
-// TODO: Serve static - public on /public
-
-// app.use(async (ctx, next) => {
-//   ctx.response
-// })
-
-
-if (!debug) {
-  // TODO: serve static app.js
-
-  // app.get('/public/js/app.js', (req, res) => {
-  //   res.sendFile(join(process.cwd() + '/build/production/app.js'))
-  // })
-}
-
 if (debug) {
-  log('🏎️ Initalizing webpack compiler')
-  log('💼 Initalizing webpack dev middleware')
-  log('🔥 Initalizing hot module replacement')
+  log('💼🔥 Initalizing webpack middleware')
 
-  app.use(webpackMiddleware({
-    config: webpackConfig,
-    dev: { noInfo: true, publicPath }
-  }))
-
-  app.use(requestLogger)
+  app
+    .use(webpackMiddleware({
+      config: webpackConfig,
+      dev: { noInfo: true, publicPath }
+    }))
+    .use(requestLogger)
 }
 
-app.use(isomorphic)
-
-app.listen(port, () => console.log(`🚀 Server is listening on http://localhost:${port} 🎉`))
+app
+  .use(router.routes())
+  .use(router.allowedMethods())
+  .use(mount('/public/js/app.js', async ctx => await send(ctx, '/build/production/app.js')))
+  .use(mount('/public', serve(root + '/public')))
+  .use(universal)
+  .listen(port, () => console.log(`🚀 Server is listening on http://localhost:${port} 🎉\n\n`))

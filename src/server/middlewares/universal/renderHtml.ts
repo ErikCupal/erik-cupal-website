@@ -1,7 +1,5 @@
-import { State } from '../common/types/index'
+import { State } from '../../../common/types/index'
 import htmlTemplate from './html5'
-
-const css = ``
 
 const fonts = `
   <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,400i,500&amp;subset=latin-ext" rel="stylesheet">
@@ -17,13 +15,15 @@ const injectState = (preloadedState: State) => `
 
 const renderHtml = (
   html: string,
+  css: string,
   preloadedState: State,
   title?: string,
 ) => htmlTemplate(
   title ? title : 'App',
   'app',
   html,
-  css + fonts,
+  css,
+  fonts,
   injectState(preloadedState) + injectApp('/public/js/app.js')
 )
 

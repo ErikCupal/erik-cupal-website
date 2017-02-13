@@ -1,4 +1,3 @@
-import { resolve } from 'path'
 import { Configuration } from 'webpack'
 import webpack from 'webpack'
 
