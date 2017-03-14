@@ -8,6 +8,7 @@
       "runtimeArgs": [
         "--harmony"
       ],
+      "protocol": "inspector",
       "program": "${workspaceRoot}/src/server/index.tsx",
       "outFiles": [
         "${workspaceRoot}/build/development/**/*.js"

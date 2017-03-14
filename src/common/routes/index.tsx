@@ -1,7 +1,7 @@
 import { setupPage, normalize } from 'csstips'
 import { style } from 'typestyle'
 import { init } from 'stylish-components'
-import { Route, Switch } from 'react-router-dom'
+const { Route, Switch } = require('react-router-dom')
 
 import Page from '../components/layouts/Page'
 

@@ -1,8 +1,8 @@
 import { connect } from '../../../../actions/index'
-import { Link } from 'react-router-dom'
+const { Link } = require('react-router-dom')
 import { extend, black, floralwhite, lightslategrey, md, nav } from 'stylish-components'
 
-const NavLink = extend(Link)([
+const NavLink = extend(Link)<{ to: string }>([
   {
     textTransform: 'uppercase',
     padding: 0,

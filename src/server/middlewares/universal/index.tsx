@@ -1,6 +1,6 @@
 import { Context } from 'koa'
 import { renderToString } from 'react-dom/server'
-import { StaticRouter } from 'react-router'
+const { StaticRouter } = require('react-router')
 import { Provider } from 'react-redux'
 import { getStyles } from 'typestyle'
 
